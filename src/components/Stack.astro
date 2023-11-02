@@ -1,0 +1,33 @@
+---
+import techData from "../data/techData";
+const techStack = [
+  { name: "React" },
+  { name: "TailwindCSS" },
+  { name: "JavaScript" },
+  { name: "TypeScript" },
+  { name: "Astro" },
+];
+---
+
+<section class="mb-6">
+  <h3 class="mb-4">Stack</h3>
+  <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+    {
+      techStack.map((tech) => {
+        const techInfo = techData.find((t) => t.name === tech.name);
+        return techInfo ? (
+          <div class="flex max-w-xs flex-col items-center space-y-2 rounded-lg border border-neutral-600 p-2 bg-neutral-800">
+            <div>
+              <img
+                src={techInfo.icon}
+                class="w-8 h-8"
+                alt={`${tech.name} Icon`}
+              />
+            </div>
+            <span class="text-neutral-200 text-sm">{tech.name}</span>
+          </div>
+        ) : null;
+      })
+    }
+  </div>
+</section>
