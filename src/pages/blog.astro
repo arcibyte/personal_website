@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+const pageTitle = "Jhon Arciniegas | Blog";
+const postList = await Astro.glob("../pages/posts/*.md");
+const reversedPostList = postList.reverse();
+---
+
+<Layout title={pageTitle}>
+  <h3 class="text-xl mt-4 mb-4">Últimas públicaciones</h3>
+  <ul class="mb-6">
+    {
+      reversedPostList.map((post) => (
+        <li class="hover:text-neutral-400 py-3 text-neutral-300">
+          <a
+            href={post.url}
+            class="hover:text-neutral-400 py-3 text-neutral-300"
+          >
+            {post.frontmatter.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
