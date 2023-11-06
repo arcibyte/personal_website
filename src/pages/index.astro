@@ -1,10 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
 const pageTitle = "Jhon Arciniegas";
+import Layout from "../layouts/Layout.astro";
 import Profile from "../components/Profile.astro";
 import Projects from "../components/Projects.astro";
 import Stack from "../components/Stack.astro";
-import Footer from "../components/Footer.astro";
 ---
 
 <Layout title={pageTitle}>
@@ -21,10 +20,7 @@ import Footer from "../components/Footer.astro";
       <h3>Desarrollador Frontend</h3>
     </div>
   </main>
+  <Profile />
+  <Projects />
+  <Stack />
 </Layout>
-<Profile />
-<Projects />
-<Stack />
-<Footer />
-
-<style></style>
