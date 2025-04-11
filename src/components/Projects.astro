@@ -1,65 +1,37 @@
-<h3 class="mt-6 mb-4">Proyectos</h3>
+---
+import { projects } from "../data/projects";
+---
+
+<<<<<<< HEAD
+<h3 class="mt-6 mb-4 text-xl">Proyectos</h3>
+
 <section
-  class="grid xl:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-5 mb-6 text-sm"
+  class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6 text-sm auto-rows-[140px] md:auto-rows-[180px]"
 >
-  <article
-    class="items-start justify-between border border-transparent hover:border-neutral-700 bg-neutral-800 p-2 sm:gap-2 sm:p-3 rounded-xl"
-  >
-    <div>
-      <a href="" class="gap-x-2">
-        <h4>Proyecto 1</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </a>
-    </div>
-  </article>
-  <article
-    class="items-start justify-between border border-transparent hover:border-neutral-700 bg-neutral-800 p-2 sm:gap-2 sm:p-3 rounded-xl"
-  >
-    <div>
-      <a href="" class="gap-x-2">
-        <h4>Proyecto 2</h4>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-      </a>
-    </div>
-  </article>
-  <article
-    class="items-start justify-between border border-transparent hover:border-neutral-700 bg-neutral-800 p-2 sm:gap-2 sm:p-3 rounded-xl"
-  >
-    <div>
-      <a href="" class="gap-x-2">
-        <h4>Proyecto 3</h4>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-      </a>
-    </div>
-  </article>
-  <article
-    class="items-start justify-between border border-transparent hover:border-neutral-700 bg-neutral-800 p-2 sm:gap-2 sm:p-3 rounded-xl"
-  >
-    <div>
-      <a href="" class="gap-x-2">
-        <h4>Proyecto 4</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </a>
-    </div>
-  </article>
-  <article
-    class="items-start justify-between border border-transparent hover:border-neutral-700 bg-neutral-800 p-2 sm:gap-2 sm:p-3 rounded-xl"
-  >
-    <div>
-      <a href="" class="gap-x-2">
-        <h4>Proyecto 5</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </a>
-    </div>
-  </article>
-  <article
-    class="items-start justify-between border border-transparent hover:border-neutral-700 bg-neutral-800 p-2 sm:gap-2 sm:p-3 rounded-xl"
-  >
-    <div>
-      <a href="" class="gap-x-2">
-        <h4>Proyecto 6</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </a>
-    </div>
-  </article>
+  {
+    projects.map((project) => (
+      <article
+        class={`p-4 rounded-2xl text-white flex flex-col justify-between ${project.bgColor} ${project.hoverColor} ${project.span}`}
+      >
+        <a href={`/projects/${project.slug}`}>
+          <h4 class="font-bold text-lg mb-2">{project.title}</h4>
+          <p class="text-sm">{project.description}</p>
+        </a>
+      </article>
+    ))
+  }
 </section>
+=======
+{
+  projects.map((project) => (
+    <article
+      class={`p-4 rounded-2xl text-white flex flex-col justify-between ${project.bgColor} ${project.hoverColor} ${project.span}`}
+    >
+      <a href={`/projects/${project.slug}`}>
+        <h4 class="font-bold text-lg mb-2">{project.title}</h4>
+        <p class="text-sm">{project.description}</p>
+      </a>
+    </article>
+  ))
+}
+>>>>>>> f07de85 (💄feat(ui): update projects section with Bento grid layout)
