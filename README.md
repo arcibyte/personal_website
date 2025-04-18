@@ -1,54 +1,28 @@
-# Astro Starter Kit: Basics
+# 🌐 Portafolio Web - Jhon Arciniegas
 
-```sh
-npm create astro@latest -- --template basics
-```
+Este repositorio contiene el código fuente de mi portafolio personal, desarrollado con [Astro](https://astro.build). El sitio está diseñado para reflejar mi perfil profesional, mis habilidades y mi trayectoria como desarrollador.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🧭 Estructura del sitio
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Mi portafolio está compuesto por las siguientes secciones:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- **Sobre mí:** una presentación personal donde comparto quién soy, mis intereses y mi enfoque profesional.
+- **Proyectos:** un recorrido por los trabajos y desarrollos en los que he participado o liderado.
+- **Habilidades:** un resumen de las herramientas, lenguajes y tecnologías que manejo actualmente.
+- **Contacto:** una forma directa para que puedas escribirme o conectarte conmigo.
+- **Blog:** un espacio donde comparto ideas, aprendizajes y reflexiones relacionadas con tecnología, desarrollo y temas que considero relevantes.
+  
+ --- 
 
-## 🚀 Project Structure
+## 🚀 Tecnologías utilizadas
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Framework principal:** Astro
+- **Estilos:** TailwindCSS
+- **Gestión del proyecto:** Git + GitHub
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+---
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Si quieres ver el portafolio en acción, visita [este enlace](https://arcibyte.vercel.app)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Gracias por pasarte por aquí 🙌  
+_Jhon Arciniegas_
