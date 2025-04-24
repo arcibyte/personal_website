@@ -2,7 +2,6 @@
 import { projects } from "../data/projects";
 ---
 
-<<<<<<< HEAD
 <h3 class="mt-6 mb-4 text-xl">Proyectos</h3>
 
 <section
@@ -21,17 +20,3 @@ import { projects } from "../data/projects";
     ))
   }
 </section>
-=======
-{
-  projects.map((project) => (
-    <article
-      class={`p-4 rounded-2xl text-white flex flex-col justify-between ${project.bgColor} ${project.hoverColor} ${project.span}`}
-    >
-      <a href={`/projects/${project.slug}`}>
-        <h4 class="font-bold text-lg mb-2">{project.title}</h4>
-        <p class="text-sm">{project.description}</p>
-      </a>
-    </article>
-  ))
-}
->>>>>>> f07de85 (💄feat(ui): update projects section with Bento grid layout)

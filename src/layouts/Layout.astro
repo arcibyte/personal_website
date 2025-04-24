@@ -1,9 +1,10 @@
 ---
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 ---
@@ -12,18 +13,19 @@ import Footer from "../components/Footer.astro";
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="p-4 sm:p-0 mx-auto max-w-[600px] text-[15px]">
+  <body class="p-4 sm:p-0 mx-auto max-w-[600px] text-base">
     <Header />
     <slot />
     <Footer />
   </body>
 </html>
+
 <style is:global>
   html {
     background-color: #111010;
