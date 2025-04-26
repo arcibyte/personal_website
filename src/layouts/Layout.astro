@@ -19,7 +19,7 @@ import Footer from "../components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="p-4 sm:p-0 mx-auto max-w-[600px] text-base">
+  <body class="p-4 sm:p-0 mx-auto max-w-[580px] text-base">
     <Header />
     <slot />
     <Footer />
@@ -35,8 +35,8 @@ import Footer from "../components/Footer.astro";
     font-display: swap;
   }
   @font-face {
-    font-family: "Inter-Medium";
-    src: url(../../public/fonts/Inter-Medium.woff2) format("woff2");
+    font-family: "Rubik-Bold";
+    src: url(../../public/fonts/Rubik-Bold.woff) format("woff2");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -54,6 +54,7 @@ import Footer from "../components/Footer.astro";
   h4,
   h5 {
     color: #e0dcdc;
+    font-family: "Rubik-Bold";
   }
   p {
     color: #bdbcbc;
