@@ -10,10 +10,10 @@ const reversedPostList = postList.reverse();
   <ul class="mb-6">
     {
       reversedPostList.map((post) => (
-        <li class="hover:text-neutral-400 py-3 text-neutral-300">
+        <li class="py-3 hover:text-neutral-50 hover:underline">
           <a
             href={post.url}
-            class="hover:text-neutral-400 py-3 text-neutral-300"
+            class="hover:text-neutral-50 hover:underline py-3 text-neutral-300"
           >
             {post.frontmatter.title}
           </a>
