@@ -2,7 +2,7 @@
 import { projects } from "../data/projects";
 ---
 
-<h3 class="mt-6 mb-4 text-xl">Proyectos</h3>
+<h3 class="mt-6 mb-4 text-base">Proyectos</h3>
 
 <section
   class="grid grid-cols-2 md:grid-cols-4 gap-2.5 mb-6 text-sm auto-rows-[140px] md:auto-rows-[180px]"
@@ -13,7 +13,7 @@ import { projects } from "../data/projects";
         class={`p-4 rounded-2xl text-white flex flex-col justify-between ${project.bgColor} ${project.hoverColor} ${project.span}`}
       >
         <a href={`/projects/${project.slug}`}>
-          <h4 class="font-bold text-lg mb-2">{project.title}</h4>
+          <h4 class="font-bold text-xs mb-2 text-[#ccd1d0]">{project.title}</h4>
           <p class="text-sm">{project.description}</p>
         </a>
       </article>
