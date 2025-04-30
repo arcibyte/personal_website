@@ -16,15 +16,17 @@ const techStack = [
       techStack.map((tech) => {
         const techInfo = techData.find((t) => t.name === tech.name);
         return techInfo ? (
-          <div class="flex max-w-xs flex-col items-center space-y-2 rounded-lg border border-neutral-700 p-2 bg-neutral-800">
-            <div>
+          <div class="flex max-w-xs flex-col items-center space-y-2 rounded-xl border border-[#1F2937] p-4 bg-gradient-to-br from-[#0e1320] via-[#101726] to-[#0e1320] shadow-md">
+            <div class="bg-[#1a2333] p-3 rounded-full">
               <img
                 src={techInfo.icon}
                 class="w-8 h-8"
                 alt={`${tech.name} Icon`}
               />
             </div>
-            <span class="text-neutral-200 text-sm">{tech.name}</span>
+            <span class="text-neutral-100 text-sm tracking-wide">
+              {tech.name}
+            </span>
           </div>
         ) : null;
       })
