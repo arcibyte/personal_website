@@ -2,21 +2,26 @@
 import { projects } from "../data/projects";
 ---
 
-<h3 class="mt-6 mb-4 text-xl">Proyectos</h3>
+<h3 class="mt-6 mb-4 text-xl text-[#CCFF66] tracking-wide">Projects</h3>
 
 <section
-  class="grid grid-cols-2 md:grid-cols-4 gap-2.5 mb-6 text-sm auto-rows-[140px] md:auto-rows-[180px]"
+  class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 text-sm auto-rows-[160px] md:auto-rows-[200px]"
 >
   {
     projects.map((project) => (
       <article
-        class={`p-4 rounded-2xl text-white flex flex-col justify-between ${project.bgColor} ${project.hoverColor} ${project.span}`}
+        class={`rounded-xl p-4 text-neutral-100 bg-[#101726] border border-neutral-800 hover:shadow-[0_0_12px_#67E8F9] transition-shadow duration-300 cursor-pointer ${project.span}`}
       >
-        <a href={`/projects/${project.slug}`}>
-          <h4 class="font-bold text-base mb-2 text-[#ccd1d0]">
+        <a
+          href={`/projects/${project.slug}`}
+          class="flex flex-col justify-between h-full"
+        >
+          <h4 class="font-semibold text-base text-[#67E8F9] mb-1">
             {project.title}
           </h4>
-          <p class="text-sm">{project.description}</p>
+          <p class="text-sm leading-snug text-neutral-100">
+            {project.description}
+          </p>
         </a>
       </article>
     ))
