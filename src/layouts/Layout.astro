@@ -16,28 +16,37 @@ import Footer from "../components/Footer.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="author" content="Jhon Arciniegas" />
-    <meta name="image" property="og:image" content="/img/OP.jpg" />
-    <link rel="icon" href="/public/img/icon.png" />
+    <link rel="icon" href="/img/icon.png" />
+
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Jhon Arciniegas" />
     <meta
       property="og:description"
       content="FrontEnd | JavaScript, React, TypeScript, Tailwind."
     />
-    <meta property="og:image:width" content="1920" />
-    <meta property="og:image:height" content="1080" />
+    <meta property="og:image" content="/img/OP.jpg" />
+    <meta property="og:image:width" content="1536" />
+    <meta property="og:image:height" content="1024" />
     <meta property="og:url" content="https://www.arcibyte.vercel.app" />
     <meta property="og:site_name" content="Jhon Arciniegas - Portfolio" />
+
+    <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Jhon Arciniegas" />
     <meta
       name="twitter:description"
-      content="FrontEnd Developer | JavaScript, React, TypeScript,  Tailwind."
+      content="FrontEnd Developer | JavaScript, React, TypeScript, Tailwind."
     />
-    <meta name="twitter:image" content="" />
+    <meta
+      name="twitter:image"
+      content="https://www.arcibyte.vercel.app/img/OP.jpg"
+    />
     <meta name="twitter:image:alt" content="My personal portfolio" />
+
     <title>{title}</title>
   </head>
+
   <body class="p-4 sm:p-0 mx-auto max-w-[580px] text-base">
     <Header />
     <slot />
