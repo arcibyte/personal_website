@@ -2,28 +2,36 @@
 import { projects } from "../data/projects";
 ---
 
-<h3 class="mt-6 mb-4 text-2xl text-[#CCFF66] tracking-wide">Projects</h3>
-
-<section
-  class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 text-sm auto-rows-[160px] md:auto-rows-[200px]"
+<h3
+  class="mt-12 mb-8 text-3xl font-bold text-lime-300 tracking-tight text-center"
 >
+  Featured Projects
+</h3>
+
+<section class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20">
   {
-    projects.map((project) => (
-      <article
-        class={`rounded-xl p-4 text-neutral-100 bg-[#101726] border border-neutral-800 hover:shadow-[0_0_12px_#67E8F9] transition-shadow duration-300 cursor-pointer ${project.span}`}
+    projects.slice(0, 4).map((project) => (
+      <a
+        href={`/projects/${project.slug}`}
+        class="group relative flex flex-col justify-between rounded-2xl border border-neutral-800 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] p-6 shadow-md hover:border-cyan-300 transition duration-300"
       >
-        <a
-          href={`/projects/${project.slug}`}
-          class="flex flex-col justify-between h-full"
-        >
-          <h4 class="font-semibold text-base text-[#67E8F9] mb-1">
+        <div class="mb-4">
+          <h4 class="text-xl font-semibold text-cyan-300 group-hover:text-lime-300 transition-colors duration-300">
             {project.title}
           </h4>
-          <p class="text-sm leading-snug text-neutral-100">
+          <p class="mt-2 text-gray-300 text-sm leading-relaxed">
             {project.description}
           </p>
-        </a>
-      </article>
+        </div>
+
+        <span class="mt-4 text-xs text-lime-300 font-medium tracking-wide">
+          View Project →
+        </span>
+
+        <div class="absolute -top-4 -right-4 opacity-10 text-7xl font-bold text-lime-400 group-hover:opacity-20 transition-opacity duration-300">
+          #
+        </div>
+      </a>
     ))
   }
 </section>
