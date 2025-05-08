@@ -1,5 +1,6 @@
 ---
 import techData from "../data/techData";
+
 const techStack = [
   { name: "React" },
   { name: "TailwindCSS" },
@@ -12,26 +13,31 @@ const techStack = [
 ];
 ---
 
-<section class="mb-6">
-  <h3 class="mb-4 text-2xl">Stack & Tools</h3>
-  <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+<section class="mb-20">
+  <h3 class="mb-10 text-3xl font-bold text-lime-300 tracking-tight text-center">
+    Stack & Tools
+  </h3>
+
+  <div
+    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-5xl mx-auto"
+  >
     {
       techStack.map((tech) => {
         const techInfo = techData.find((t) => t.name === tech.name);
-        return techInfo ? (
-          <div class="flex max-w-xs flex-col items-center space-y-2 rounded-xl border border-[#1F2937] p-4 bg-gradient-to-br from-[#0e1320] via-[#101726] to-[#0e1320] shadow-md">
-            <div class="bg-[#1a2333] p-3 rounded-full">
+        if (!techInfo) return null;
+        return (
+          <div class="flex flex-col items-center justify-center gap-3 px-5 py-3 rounded-2xl border border-gray-700/40 bg-gradient-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-sm shadow-lg text-gray-100">
+            <div class="bg-gray-800/80 p-3 rounded-full border border-gray-700">
               <img
                 src={techInfo.icon}
-                class="w-8 h-8"
+                class="w-10 h-10 object-contain"
                 alt={`${tech.name} Icon`}
+                loading="lazy"
               />
             </div>
-            <span class="text-neutral-100 text-sm tracking-wide">
-              {tech.name}
-            </span>
+            <span class="text-sm tracking-wide text-gray-200">{tech.name}</span>
           </div>
-        ) : null;
+        );
       })
     }
   </div>
