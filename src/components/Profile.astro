@@ -1,52 +1,65 @@
-<section class="min-h-[20vh] flex items-center justify-center mt-8">
+<section class="relative min-h-[30vh] flex items-center justify-center mt-12">
   <div
     class="flex flex-col-reverse sm:flex-row items-center max-w-5xl w-full gap-8"
   >
     <!-- Textual Content -->
-    <div class="space-y-2 sm:flex-1">
-      <h2
-        class="text-center sm:text-left text-3xl font-extrabold text-[#CCFF66]"
-      >
+    <div class="space-y-3 sm:flex-1 text-center sm:text-left relative">
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-white relative">
         Jhon Arciniegas
+        <span class="absolute -top-3 -right-2 text-[#CCFF66] text-sm rotate-2"
+          >👋 Hello!</span
+        >
       </h2>
       <h3
-        class="text-center sm:text-left text-xl text-cyan-300 font-semibold tracking-wide"
+        class="text-xl text-[#CCFF66] font-semibold tracking-wide relative inline-block after:block after:h-0.5 after:bg-[#CCFF66] after:w-16 after:mt-1"
       >
-        Dev & Data Science Student
+        Creative Dev & Data Science Student
       </h3>
-      <p class="text-gray-300 leading-relaxed">
-        Hi, I'm Jhon — passionate about math, software, and learning how things
-        actually work. I started coding in 2019 with Java, but eventually found
-        joy in building complete experiences using JavaScript, TypeScript, and
-        ReactJS.
+      <p class="text-gray-300 leading-relaxed max-w-md mx-auto sm:mx-0">
+        Crafting playful and purposeful code since 2019, driven by curiosity for
+        algorithms, elegant software, and intuitive user experiences.
       </p>
     </div>
 
-    <!-- Profile Image -->
+    <!-- Profile Image with border and sketch -->
     <div class="relative group">
-      <div
-        class="rounded-full border-4 border-[#CCFF66] p-1 shadow-[0_10px_40px_rgba(204,255,102,0.3)]"
-      >
+      <div class="rounded-full border-4 border-[#CCFF66] p-1 relative">
         <img
           src="../img/profile.webp"
           alt="Jhon Arciniegas"
           class="h-36 w-36 object-cover rounded-full shadow-xl"
           loading="lazy"
         />
+        <!-- Doodle Star -->
+        <svg
+          class="absolute -top-4 -right-4 w-6 h-6 text-[#CCFF66]"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 2v20M2 12h20M4 4l16 16M20 4L4 20"></path>
+        </svg>
       </div>
     </div>
   </div>
+
+  <!-- Handwritten Name Arrow -->
+  <svg
+    class="absolute top-40 sm:top-0 left-[50%] -translate-x-0 sm:left-40 sm:translate-x-0 w-32 sm:w-48"
+    viewBox="0 0 200 50"
+    fill="none"
+  >
+    <path
+      d="M0 40 C40 0, 160 0, 200 40"
+      stroke="#CCFF66"
+      stroke-width="2"
+      fill="none"></path>
+    <text
+      x="60"
+      y="15"
+      class="fill-[#CCFF66] text-[14px]"
+      font-family="Comic Sans MS, cursive">That's me!</text
+    >
+  </svg>
 </section>
-<!-- About Paragraph -->
-<div class="mx-auto mt-2 text-gray-300 leading-relaxed space-y-4">
-  <p>
-    Currently studying data science engineering with an eye on AI, algebraic
-    structures, and software development. I enjoy creating interfaces, exploring
-    the "why" behind algorithms, and building things that feel good to use.
-  </p>
-  <p>
-    When I'm not deep into code or a textbook, you'll find me biking or hiking,
-    trying to compose some music, or just vibing with some nonfiction or
-    writing.
-  </p>
-</div>
