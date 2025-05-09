@@ -4,9 +4,31 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <section
-    class="prose prose-code:text-neutral-50 prose-headings:text-cyan-300 prose-h2:text-[#CCFF66] mt-6 mb-6"
-  >
-    <slot />
+  <section class="relative max-w-3xl mx-auto px-6 py-6">
+    <div class="mb-12 text-center">
+      <h1 class="text-3xl sm:text-4xl font-bold text-cyan-300 tracking-tight">
+        {frontmatter.title}
+      </h1>
+      <div class="mt-4 inline-block h-[2px] w-16 bg-cyan-300 rounded-sm"></div>
+    </div>
+
+    <!-- Content Slot -->
+    <article
+      class="prose prose-invert prose-headings:text-neutral-100 prose-a:text-cyan-300 prose-strong:text-lime-200 prose-code:bg-neutral-800 prose-code:rounded prose-code:px-1.5 prose-code:py-1 max-w-none text-gray-300 leading-relaxed"
+    >
+      <slot />
+    </article>
+
+    <!-- Decorative Touch: Abstract line pattern -->
+    <div
+      class="absolute top-10 right-4 w-12 h-12 sm:w-20 sm:h-20 opacity-10 pointer-events-none"
+    >
+      <svg viewBox="0 0 100 100" class="w-full h-full text-gray-500">
+        <path
+          d="M0 0 L100 100 M100 0 L0 100"
+          stroke="currentColor"
+          stroke-width="2"></path>
+      </svg>
+    </div>
   </section>
 </Layout>
