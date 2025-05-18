@@ -1,34 +1,56 @@
-<section class="relative min-h-[30vh] flex items-center justify-center mt-12">
+<section
+  class="relative min-h-[30vh] flex items-center justify-center mt-12 px-4"
+  aria-label="Profile introduction section"
+>
   <div
     class="flex flex-col-reverse sm:flex-row items-center max-w-5xl w-full gap-8"
   >
     <!-- Textual Content -->
-    <div class="space-y-3 sm:flex-1 text-center sm:text-left relative">
+    <article class="space-y-4 sm:flex-1 text-center sm:text-left relative">
       <h2 class="text-4xl sm:text-5xl font-extrabold text-white relative">
         Jhon Arciniegas
-        <span class="absolute -top-3 -right-2 text-[#CCFF66] text-sm rotate-2"
-          >👋 Hello!</span
+        <span
+          class="absolute -top-3 -right-2 text-[#CCFF66] text-sm rotate-2"
+          aria-hidden="true">👋 Hello!</span
         >
       </h2>
       <h3
         class="text-xl text-[#CCFF66] font-semibold tracking-wide relative inline-block after:block after:h-0.5 after:bg-[#CCFF66] after:w-16 after:mt-1"
       >
-        Creative Dev & Data Science Student
+        Creative Dev &amp; Data Science Student
       </h3>
       <p class="text-gray-300 leading-relaxed max-w-md mx-auto sm:mx-0">
         Crafting playful and purposeful code since 2019, driven by curiosity for
         algorithms, elegant software, and intuitive user experiences.
       </p>
-    </div>
+
+      <!-- Contact email -->
+      <div class="mt-6">
+        <a
+          href="mailto:arcibyte@gmail.com"
+          class="inline-flex items-center gap-2 px-3 py-3 bg-cyan-300 text-sm text-[#101726] font-bold rounded-full shadow-lg
+           hover:bg-[#CCFF66] focus:outline-none focus:ring-4 focus:ring-[#CCFF66]/60 transition-colors duration-300"
+          aria-label="Send an email to arcibyte@gmail.com"
+          role="button"
+        >
+          Send me an email
+        </a>
+      </div>
+    </article>
 
     <!-- Profile Image with border and sketch -->
-    <div class="relative group">
+    <aside
+      class="relative group"
+      aria-label="Profile picture of Jhon Arciniegas"
+    >
       <div class="rounded-full border-4 border-[#CCFF66] p-1 relative">
         <img
           src="../img/profile.webp"
-          alt="Jhon Arciniegas"
+          alt="Portrait of Jhon Arciniegas"
           class="h-36 w-36 object-cover rounded-full shadow-xl"
           loading="lazy"
+          decoding="async"
+          fetchpriority="low"
         />
         <!-- Doodle Star -->
         <svg
@@ -37,11 +59,13 @@
           stroke="currentColor"
           stroke-width="2"
           viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
         >
           <path d="M12 2v20M2 12h20M4 4l16 16M20 4L4 20"></path>
         </svg>
       </div>
-    </div>
+    </aside>
   </div>
 
   <!-- Handwritten Name Arrow -->
@@ -49,6 +73,8 @@
     class="absolute top-40 sm:top-0 left-[50%] -translate-x-0 sm:left-40 sm:translate-x-0 w-32 sm:w-48"
     viewBox="0 0 200 50"
     fill="none"
+    aria-hidden="true"
+    focusable="false"
   >
     <path
       d="M0 40 C40 0, 160 0, 200 40"
@@ -59,7 +85,9 @@
       x="60"
       y="15"
       class="fill-[#CCFF66] text-[14px]"
-      font-family="Comic Sans MS, cursive">That's me!</text
+      font-family="Comic Sans MS, cursive"
     >
+      That's me!
+    </text>
   </svg>
 </section>
