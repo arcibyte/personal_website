@@ -12,4 +12,11 @@ export function useTranslations(lang: keyof typeof ui) {
     };
 }
 
+//function to initialize translations from url
+export function initTranslations(url: URL) {
+    const lang = getLangFromUrl(url);
+    const t = useTranslations(lang);
+    return { lang, t };
+}
+
 export { ui, defaultLang };

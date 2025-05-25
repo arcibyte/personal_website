@@ -1,11 +1,14 @@
 ---
 import { projects } from "../data/projects";
+import { initTranslations } from "../i18n/utils";
+
+const { t } = initTranslations(Astro.url);
 ---
 
 <h3
   class="mt-12 mb-8 text-3xl font-bold text-lime-300 tracking-tight text-center"
 >
-  Featured Projects
+  {t("projects.title")}
 </h3>
 
 <section class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20">
@@ -13,9 +16,9 @@ import { projects } from "../data/projects";
     projects.map((project) => (
       <article class="flex flex-col justify-between rounded-xl border border-neutral-800 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] p-6 shadow-md">
         <h4 class="text-xl font-semibold text-cyan-300 mb-2">
-          {project.title}
+          {t(project.titleKey)}
         </h4>
-        <p class="text-gray-300 text-sm mb-4">{project.description}</p>
+        <p class="text-gray-300 text-sm mb-4">{t(project.descriptionKey)}</p>
 
         <div class="flex gap-4 text-xs font-medium text-lime-300">
           <a
@@ -24,7 +27,7 @@ import { projects } from "../data/projects";
             rel="noopener noreferrer"
             class="underline hover:text-lime-400"
           >
-            Ver proyecto
+            {t("projects.view")}
           </a>
           {project.githubUrl && (
             <a
@@ -33,7 +36,7 @@ import { projects } from "../data/projects";
               rel="noopener noreferrer"
               class="underline hover:text-lime-400"
             >
-              Código en GitHub
+              {t("projects.code")}
             </a>
           )}
         </div>
