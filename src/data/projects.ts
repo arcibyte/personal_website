@@ -1,35 +1,35 @@
+import { ui } from "../i18n/ui";
+
 export interface Project {
-  title: string;
-  description: string;
+  titleKey: keyof typeof ui["es"];
+  descriptionKey: keyof typeof ui["es"];
   projectUrl: string;
   githubUrl?: string;
 }
 
 export const projects: Project[] = [
   {
-    title: "Proyecto 1",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    titleKey: "projects.project1.title",
+    descriptionKey: "projects.project1.description",
     projectUrl: "https://proyecto1.com",
-    githubUrl: "https://github.com/"
+    githubUrl: "https://github.com/",
   },
   {
-    title: "Proyecto 2",
-    description: "Adaptación de equipos",
+    titleKey: "projects.project2.title",
+    descriptionKey: "projects.project2.description",
     projectUrl: "https://proyecto2.com",
-    githubUrl: "https://github.com/"
+    githubUrl: "https://github.com/",
   },
   {
-    title: "Proyecto 3",
-    description: "Sincronización y coordinación del equipo.",
+    titleKey: "projects.project3.title",
+    descriptionKey: "projects.project3.description",
     projectUrl: "https://proyecto3.com",
-    githubUrl: "https://github.com/"
+    githubUrl: "https://github.com/",
   },
   {
-    title: "Proyecto 4",
-    description: "Descripción breve.",
+    titleKey: "projects.project4.title",
+    descriptionKey: "projects.project4.description",
     projectUrl: "https://proyecto4.com",
-    githubUrl: "https://github.com/"
-
-
-  }
+    githubUrl: "https://github.com/",
+  },
 ];
