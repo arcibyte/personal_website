@@ -10,28 +10,34 @@ import { projects } from "../data/projects";
 
 <section class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20">
   {
-    projects.slice(0, 4).map((project) => (
-      <a
-        href={`/projects/${project.slug}`}
-        class="group relative flex flex-col justify-between rounded-2xl border border-neutral-800 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] p-6 shadow-md hover:border-cyan-300 transition duration-300"
-      >
-        <div class="mb-4">
-          <h4 class="text-xl font-semibold text-cyan-300 group-hover:text-lime-300 transition-colors duration-300">
-            {project.title}
-          </h4>
-          <p class="mt-2 text-gray-300 text-sm leading-relaxed">
-            {project.description}
-          </p>
-        </div>
+    projects.map((project) => (
+      <article class="flex flex-col justify-between rounded-xl border border-neutral-800 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] p-6 shadow-md">
+        <h4 class="text-xl font-semibold text-cyan-300 mb-2">
+          {project.title}
+        </h4>
+        <p class="text-gray-300 text-sm mb-4">{project.description}</p>
 
-        <span class="mt-4 text-xs text-lime-300 font-medium tracking-wide">
-          View Project →
-        </span>
-
-        <div class="absolute -top-4 -right-4 opacity-10 text-7xl font-bold text-lime-400 group-hover:opacity-20 transition-opacity duration-300">
-          #
+        <div class="flex gap-4 text-xs font-medium text-lime-300">
+          <a
+            href={project.projectUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline hover:text-lime-400"
+          >
+            Ver proyecto
+          </a>
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline hover:text-lime-400"
+            >
+              Código en GitHub
+            </a>
+          )}
         </div>
-      </a>
+      </article>
     ))
   }
 </section>
