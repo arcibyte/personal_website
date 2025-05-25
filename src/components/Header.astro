@@ -1,5 +1,10 @@
 ---
+import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from "astro:i18n";
 import GitHubIcon from "../../src/assets/Github.svg";
+const currentLang = Astro.currentLocale || "es";
+import { useTranslations } from "src/i18n/utils";
+import { languageList } from "../i18n/ui";
+const translateUi = useTranslations(currentLang as keyof typeof languageList);
 ---
 
 <header>
@@ -8,14 +13,14 @@ import GitHubIcon from "../../src/assets/Github.svg";
   >
     <div class="flex space-x-4">
       <a
-        href="/"
+        href={getRelativeLocaleUrl(currentLang, "/")}
         class="text-neutral-300 underline underline-offset-4 decoration-transparent hover:text-white hover:decoration-[#CCFF66] transition-all duration-200"
-        >Home</a
+        >{translateUi("nav.home")}</a
       >
       <a
-        href="/blog"
+        href={getAbsoluteLocaleUrl(currentLang, "blog")}
         class="text-neutral-300 underline underline-offset-4 decoration-transparent hover:text-white hover:decoration-[#CCFF66] transition-all duration-200"
-        >Blog</a
+        >{translateUi("nav.blog")}</a
       >
     </div>
 

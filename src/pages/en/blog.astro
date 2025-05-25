@@ -1,0 +1,54 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const pageTitle = "Jhon Arciniegas | Blog";
+
+type Post = {
+  frontmatter: {
+    title: string;
+    date: string;
+  };
+  url: string;
+};
+
+// Cargar todos los posts de todos los idiomas
+const allPosts = import.meta.glob("/src/pages/*/posts/*.md", { eager: true });
+
+// Detectar el idioma desde la URL
+const locale = Astro.url.pathname.split("/")[1] || "es";
+
+// Filtrar los posts por idioma y castear el tipo
+const filteredPosts = Object.entries(allPosts)
+  .filter(([path]) => path.includes(`/src/pages/${locale}/posts/`))
+  .map(([_, mod]) => mod as Post);
+
+const reversedPostList = filteredPosts.reverse();
+---
+
+<Layout title={pageTitle}>
+  <section class="max-w-4xl mx-auto py-6">
+    <header class="mb-12">
+      <h1 class="text-3xl sm:text-4xl font-bold text-cyan-300 tracking-tight">
+        Blog Posts
+      </h1>
+      <p class="mt-3 text-gray-400 text-sm uppercase tracking-widest">
+        thoughts, dev notes & ideas
+      </p>
+    </header>
+
+    <ul class="space-y-4">
+      {
+        reversedPostList.map((post) => (
+          <li class="border-l-4 border-lime-300 pl-2 transition-colors rounded-md group">
+            <a
+              href={post.url}
+              class="block text-lg font-medium text-neutral-200 group-hover:text-lime-300"
+            >
+              {post.frontmatter.title}
+            </a>
+            <p class="mt-1 text-sm text-neutral-400">{post.frontmatter.date}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

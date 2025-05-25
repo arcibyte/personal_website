@@ -1,3 +1,10 @@
+---
+import { useTranslations } from "../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
 <section
   class="relative min-h-[30vh] flex items-center justify-center mt-12 px-4"
   aria-label="Profile introduction section"
@@ -11,34 +18,36 @@
         Jhon Arciniegas
         <span
           class="absolute -top-3 -right-2 text-[#CCFF66] text-sm rotate-2"
-          aria-hidden="true">👋 Hello!</span
+          aria-hidden="true"
         >
+          👋 {t("profile.span")}
+        </span>
       </h2>
+
       <h3
         class="text-xl text-[#CCFF66] font-semibold tracking-wide relative inline-block after:block after:h-0.5 after:bg-[#CCFF66] after:w-16 after:mt-1"
       >
-        Creative Dev &amp; Data Science Student
+        {t("profile.role")}
       </h3>
+
       <p class="text-gray-300 leading-relaxed max-w-md mx-auto sm:mx-0">
-        Crafting playful and purposeful code since 2019, driven by curiosity for
-        algorithms, elegant software, and intuitive user experiences.
+        {t("profile.description")}
       </p>
 
       <!-- Contact email -->
       <div class="mt-6">
         <a
           href="mailto:arcibyte@gmail.com"
-          class="inline-flex items-center gap-2 px-3 py-3 bg-cyan-300 text-sm text-[#101726] font-bold rounded-full shadow-lg
-           hover:bg-[#CCFF66] focus:outline-none focus:ring-4 focus:ring-[#CCFF66]/60 transition-colors duration-300"
-          aria-label="Send an email to arcibyte@gmail.com"
+          class="inline-flex items-center gap-2 px-3 py-3 bg-cyan-300 text-sm text-[#101726] font-bold rounded-full shadow-lg hover:bg-[#CCFF66] focus:outline-none focus:ring-4 focus:ring-[#CCFF66]/60 transition-colors duration-300"
+          aria-label={t("profile.cta.aria")}
           role="button"
         >
-          Send me an email
+          {t("profile.cta")}
         </a>
       </div>
     </article>
 
-    <!-- Profile Image with border and sketch -->
+    <!-- Profile Image -->
     <aside
       class="relative group"
       aria-label="Profile picture of Jhon Arciniegas"
@@ -87,7 +96,7 @@
       class="fill-[#CCFF66] text-[14px]"
       font-family="Comic Sans MS, cursive"
     >
-      That's me!
+      {t("profile.span1")}
     </text>
   </svg>
 </section>
