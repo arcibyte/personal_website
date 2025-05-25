@@ -1,8 +1,9 @@
 ---
 import { projects } from "../data/projects";
-import { initTranslations } from "../i18n/utils";
+import { useTranslations } from "../i18n/utils";
 
-const { t } = initTranslations(Astro.url);
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <h3
