@@ -12,5 +12,4 @@ export function useTranslations(lang: keyof typeof ui) {
     };
 }
 
-
 export { ui, defaultLang };
