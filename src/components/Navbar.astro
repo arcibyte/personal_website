@@ -1,23 +1,32 @@
 ---
-import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from "astro:i18n";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
 import { useTranslations } from "src/i18n/utils";
-import { languageList } from "../i18n/ui";
 
-const currentLang = Astro.currentLocale || "es";
-const translateUi = useTranslations(currentLang as keyof typeof languageList);
+// Lista de idiomas soportados
+const supportedLocales = ["es", "en"] as const;
+
+// Obtenemos el idioma actual, validando que esté en la lista
+const currentLang = supportedLocales.includes(Astro.currentLocale as any)
+  ? (Astro.currentLocale as (typeof supportedLocales)[number])
+  : "es";
+
+const translateUi = useTranslations(currentLang);
+
+// Detectar el idioma alternativo
+const otherLang = currentLang === "es" ? "en" : "es";
+const switchTo = `/${otherLang}`;
+const label = otherLang === "es" ? "ES" : "EN";
 ---
 
 <header class="text-white py-4">
   <nav class="flex items-center justify-between max-w-7xl mx-auto">
-    <a href="/">
-      <div class="flex items-center space-x-3">
-        <img
-          src="/public/img/profile.webp"
-          alt="Foto de perfil"
-          class="w-8 h-8 rounded-full object-cover"
-        />
-        <span class="font-bold tracking-wide">Arcibyte</span>
-      </div>
+    <a href={`/${currentLang}/`} class="flex items-center space-x-3">
+      <img
+        src="/public/img/profile.webp"
+        alt="Foto de perfil"
+        class="w-8 h-8 rounded-full object-cover"
+      />
+      <span class="font-bold tracking-wide">Arcibyte</span>
     </a>
 
     <div class="flex items-center space-x-6 text-sm font-mono text-neutral-300">
@@ -26,6 +35,13 @@ const translateUi = useTranslations(currentLang as keyof typeof languageList);
         class="hover:text-white transition-colors duration-200"
       >
         {translateUi("nav.blog")}
+      </a>
+
+      <a
+        href={switchTo}
+        class="px-3 py-1 bg-lime-400 hover:bg-lime-300 text-[#101726] rounded-full text-xs font-semibold transition"
+      >
+        {label}
       </a>
     </div>
   </nav>
