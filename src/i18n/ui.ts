@@ -106,5 +106,15 @@ export const ui = {
     "stack.title": "Stack & Tools",
 
     //About Me
+    "aboutme.title": "About Me",
+    "aboutme.highlight": "Here I shine!",
+    "aboutme.subtitle": "Creative, curious, and driven by logic",
+    "aboutme.paragraph.1":
+      "Currently studying data science engineering with an eye on AI, algebraic structures, and software development. I enjoy creating interfaces, exploring the",
+    "aboutme.why": "why",
+    "aboutme.paragraph.2":
+      "behind algorithms, and building things that feel good to use.",
+    "aboutme.paragraph.3":
+      "When I'm not deep into code or a textbook, you'll find me biking or hiking, composing a bit of music, or vibing with some nonfiction or writing.",
   },
 } as const;
