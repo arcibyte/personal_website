@@ -1,5 +1,9 @@
 ---
 import techData from "../data/techData";
+import { useTranslations } from "../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 
 const techStack = [
   { name: "React" },
@@ -15,7 +19,7 @@ const techStack = [
 
 <section>
   <h3 class="mb-10 text-3xl font-bold text-lime-300 tracking-tight text-center">
-    Stack & Tools
+    {t("stack.title")}
   </h3>
 
   <div
