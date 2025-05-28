@@ -1,21 +1,26 @@
 ---
-import { getAbsoluteLocaleUrl } from "astro:i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "src/i18n/utils";
 
-// Lista de idiomas soportados
 const supportedLocales = ["es", "en"] as const;
+type Locale = (typeof supportedLocales)[number];
 
-// Obtenemos el idioma actual, validando que esté en la lista
-const currentLang = supportedLocales.includes(Astro.currentLocale as any)
-  ? (Astro.currentLocale as (typeof supportedLocales)[number])
+// Idioma actual
+const currentLang = supportedLocales.includes(Astro.currentLocale as Locale)
+  ? (Astro.currentLocale as Locale)
   : "es";
 
 const translateUi = useTranslations(currentLang);
 
-// Detectar el idioma alternativo
+// Idioma alternativo
 const otherLang = currentLang === "es" ? "en" : "es";
-const switchTo = `/${otherLang}`;
-const label = otherLang === "es" ? "ES" : "EN";
+const label = otherLang.toUpperCase();
+
+// Eliminar prefijo del idioma actual
+const cleanPath = Astro.url.pathname.replace(/^\/(es|en)/, "") || "/";
+
+// Generar la nueva ruta con el idioma alternativo
+const switchTo = getRelativeLocaleUrl(otherLang, cleanPath);
 ---
 
 <header class="text-white py-4">
@@ -31,7 +36,7 @@ const label = otherLang === "es" ? "ES" : "EN";
 
     <div class="flex items-center space-x-6 text-sm font-mono text-neutral-300">
       <a
-        href={getAbsoluteLocaleUrl(currentLang, "blog")}
+        href={getRelativeLocaleUrl(currentLang, "/blog")}
         class="hover:text-white transition-colors duration-200"
       >
         {translateUi("nav.blog")}
@@ -40,6 +45,7 @@ const label = otherLang === "es" ? "ES" : "EN";
       <a
         href={switchTo}
         class="px-3 py-1 bg-lime-400 hover:bg-lime-300 text-[#101726] rounded-full text-xs font-semibold transition"
+        aria-label={`Switch to ${label}`}
       >
         {label}
       </a>
