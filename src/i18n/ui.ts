@@ -8,15 +8,15 @@ export const defaultLang = "es";
 export const ui = {
   es: {
     // Navegación
-    "nav.home": "Inicio",
     "nav.blog": "Blog",
 
     // Profile.astro
     "profile.span": "Hola",
-    "profile.span1": "Este soy yo",
-    "profile.role": "Desarrollador creativo y Estudiante de Ciencia de Datos",
+    "profile.span.text": " Me llamo",
+    "profile.span.text1": "Soy",
+    "profile.role": "Desarrollador Frontend y Estudiante de Ciencia de Datos",
     "profile.description":
-      "Creando código lúdico y con propósito desde 2019, impulsado por la curiosidad por los algoritmos, el software elegante y las experiencias de usuario intuitivas.",
+      "Me gusta convertir la curiosidad en código, sobre todo cuando se trata de algoritmos inteligentes, software limpio e interfaces fáciles de usar.",
     "profile.cta": "Envíame un correo",
     "profile.cta.aria": "Enviar un correo a arcibyte@gmail.com",
 
@@ -64,15 +64,15 @@ export const ui = {
   },
   en: {
     // Navigation
-    "nav.home": "Home",
     "nav.blog": "Blog",
 
     // Profile.astro
     "profile.span": "Hello",
-    "profile.span1": "That’s me",
-    "profile.role": "Creative Dev & Data Science Student",
+    "profile.span.text": "My name is",
+    "profile.span.text1": "I'm",
+    "profile.role": "Frontend Developer and Data Science Student",
     "profile.description":
-      "Crafting playful and purposeful code since 2019, driven by curiosity for algorithms, elegant software, and intuitive user experiences.",
+      "I love turning curiosity into code, especially when it comes to smart algorithms, clean software and easy-to-use interfaces.",
     "profile.cta": "Send me an email",
     "profile.cta.aria": "Send an email to arcibyte@gmail.com",
 

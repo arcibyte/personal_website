@@ -10,17 +10,27 @@ const t = useTranslations(lang);
   aria-label="Profile introduction section"
 >
   <div
-    class="max-w-4xl w-full flex flex-col items-center sm:items-start gap-6 text-center sm:text-left"
+    class="relative max-w-4xl w-full flex flex-col items-center sm:items-start gap-1 text-center sm:text-left"
   >
-    <h2 class="text-xl sm:text-2xl font-semibold text-white relative">
-      Jhon Arciniegas
+    <div class="relative">
       <span
-        class="absolute -top-3 -right-2 text-lime-300 text-sm rotate-2"
+        class="absolute left-0 text-lime-300 text-sm rotate-2 font-semibold"
         aria-hidden="true"
       >
         👋 {t("profile.span")}
       </span>
+
+      <span class="block mt-5 text-sm text-neutral-400">
+        {t("profile.span.text")}
+      </span>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-white">
+      Jhon Arciniegas
     </h2>
+    <span class="text-sm text-neutral-400">
+      {t("profile.span.text1")}
+    </span>
 
     <h3 class="sm:text-3xl text-2xl text-lime-300 font-medium tracking-wide">
       {t("profile.role")}
@@ -29,13 +39,14 @@ const t = useTranslations(lang);
     <p class="text-neutral-400 max-w-md leading-relaxed">
       {t("profile.description")}
     </p>
-
-    <a
-      href="mailto:arcibyte@gmail.com"
-      class="mt-4 inline-block bg-lime-300 text-[#101726] text-sm font-medium px-4 py-2 rounded-full hover:bg-lime-200 transition-colors"
-      aria-label={t("profile.cta.aria")}
-    >
-      {t("profile.cta")}
-    </a>
+    <button>
+      <a
+        href="mailto:arcibyte@gmail.com"
+        class="mt-4 inline-block bg-lime-300 text-[#101726] text-sm font-medium px-4 py-2 rounded-full hover:bg-lime-200 transition-colors"
+        aria-label={t("profile.cta.aria")}
+      >
+        {t("profile.cta")}
+      </a>
+    </button>
   </div>
 </section>
