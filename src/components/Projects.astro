@@ -1,45 +1,70 @@
 ---
+// Importación de datos y utilidades
 import { projects } from "../data/projects";
 import { useTranslations } from "../i18n/utils";
 
+// Obtener idioma desde las props de Astro
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<h3
-  class="mt-12 mb-8 text-3xl font-bold text-lime-300 tracking-tight text-center"
->
+<!-- Título de la sección -->
+<h3 class="mt-12 mb-4 text-xl font-bold text-lime-300 tracking-tight">
   {t("projects.title")}
 </h3>
 
-<section class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20">
+<!-- Contenedor de proyectos -->
+<section class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto mb-8">
   {
     projects.map((project) => (
-      <article class="flex flex-col justify-between rounded-xl border border-neutral-800 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] p-6 shadow-md">
-        <h4 class="text-xl font-semibold text-cyan-300 mb-2">
-          {t(project.titleKey)}
-        </h4>
-        <p class="text-gray-300 text-sm mb-4">{t(project.descriptionKey)}</p>
+      <article
+        class="flex flex-col justify-between rounded-xl border border-neutral-800ss p-2"
+      >
+        <header class="flex justify-between items-center mb-4">
+          <h4 class="text-base font-semibold text-gray-100">
+            {t(project.titleKey)}
+          </h4>
+          <div class="flex gap-2 items-center">
+            {project.projectUrl && (
+              <a
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/icons/external-link.svg"
+                  alt="Visit"
+                  class="w-5 h-5 opacity-70 hover:opacity-100 transition"
+                />
+              </a>
+            )}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/icons/github.svg"
+                  alt="GitHub"
+                  class="w-5 h-5 opacity-70 hover:opacity-100 transition"
+                />
+              </a>
+            )}
+          </div>
+        </header>
 
-        <div class="flex gap-4 text-xs font-medium text-lime-300">
-          <a
-            href={project.projectUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="underline hover:text-lime-400"
-          >
-            {t("projects.view")}
-          </a>
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="underline hover:text-lime-400"
-            >
-              {t("projects.code")}
-            </a>
-          )}
+        <p class="text-gray-400 text-sm mb-3">
+          {t(project.descriptionKey)}
+        </p>
+
+        <!-- Mostrar tags dinámicamente -->
+        <div class="flex flex-wrap gap-2 mt-auto text-xs font-medium text-gray-300">
+          {project.tags.map((tag) => (
+            <span class="bg-gray-800 px-2 py-0.5 rounded">
+              {tag}
+            </span>
+          ))}
         </div>
       </article>
     ))

@@ -1,10 +1,7 @@
 ---
-// src/pages/es/index.astro (igual para /en/index.astro)
 import Layout from "../../layouts/Layout.astro";
 import Profile from "../../components/Home.astro";
 import Projects from "../../components/Projects.astro";
-import Contributions from "../../components/Contributions.astro";
-import Stack from "../../components/Stack.astro";
 import AboutMe from "../../components/AboutMe.astro";
 
 import { initTranslations } from "../../i18n/translate";
@@ -15,7 +12,5 @@ const { lang, t } = initTranslations(Astro.url);
 <Layout title="Jhon Arciniegas">
   <Profile lang={lang} />
   <Projects lang={lang} />
-  <Contributions lang={lang} />
-  <Stack lang={lang} />
   <AboutMe lang={lang} />
 </Layout>

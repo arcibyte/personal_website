@@ -60,7 +60,9 @@ const currentLang = Astro.currentLocale || "es";
     <title>{title}</title>
   </head>
 
-  <body class="p-4 sm:p-0 mx-auto max-w-[580px] text-base">
+  <body
+    class="bg-background text-text dark:bg-background-dark dark:text-white p-4 sm:p-0 mx-auto max-w-[580px] text-base font-sans"
+  >
     <Header />
     <slot />
     <Footer />
@@ -68,37 +70,35 @@ const currentLang = Astro.currentLocale || "es";
 </html>
 
 <style is:global>
-  html {
-    background-color: #101726;
-    font-family: "Rubik-Regular";
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
   @font-face {
     font-family: "Rubik-Regular";
     src: url(../../public/fonts/Rubik-Regular.woff) format("woff");
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: "Rubik-Bold";
     src: url(../../public/fonts/Rubik-Bold.woff) format("woff");
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
   }
+
+  html {
+    font-family: "Rubik-Regular", sans-serif;
+    font-weight: 400;
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5 {
-    font-family: "Rubik-Bold";
+    font-family: "Rubik-Bold", sans-serif;
   }
-  p {
-    color: #d3d4d4;
-  }
+
   span {
-    font-family: "Rubik-Regular";
+    font-family: "Rubik-Regular", sans-serif;
   }
 </style>
