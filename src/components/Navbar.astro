@@ -32,29 +32,36 @@ const homeHref = localePath(currentLang, "/");
 const blogHref = localePath(currentLang, "/blog");
 ---
 
-<header class="text-white py-4">
+<header
+  class="bg-background/80 text-foreground py-4 border-b border-muted backdrop-blur-sm sticky top-0 z-50"
+  aria-label="Main navigation"
+>
   <nav class="flex items-center justify-between max-w-7xl mx-auto">
-    <a href={homeHref} class="flex items-center space-x-3">
+    <a href={homeHref} class="flex items-center space-x-3 group">
       <img
         src="/img/profile.webp"
         alt="Foto de perfil"
         loading="lazy"
-        class="w-8 h-8 rounded-full object-cover"
+        class="w-8 h-8 rounded-full object-cover transition-transform duration-200 group-hover:scale-105"
       />
-      <span class="font-bold tracking-wide">Arcibyte</span>
+      <span
+        class="font-semibold tracking-wide text-foreground group-hover:text-primary transition-colors"
+      >
+        Arcibyte
+      </span>
     </a>
 
-    <div class="flex items-center space-x-6 text-sm font-mono text-neutral-300">
+    <div class="flex items-center space-x-6 text-sm font-mono text-foreground">
       <a
         href={blogHref}
-        class="hover:text-white transition-colors duration-200"
+        class="relative inline-block transition-all duration-200 after:block after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 after:mt-1 hover:after:w-full"
       >
         {translateUi("nav.blog")}
       </a>
 
       <a
         href={switchTo}
-        class="px-3 py-1 bg-lime-400 hover:bg-lime-300 text-[#101726] rounded-full text-xs font-semibold transition"
+        class="px-3 py-1 bg-primary text-background hover:bg-accent hover:text-background rounded-full text-xs font-semibold transition-colors duration-200"
         aria-label={`Switch to ${label}`}
       >
         {label}

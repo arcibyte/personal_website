@@ -9,22 +9,22 @@ image:
   alt: "Arch Linux Installation"
 tags: ["Arch Linux", "installation", "Linux"]
 ---
-## Guía Paso a Paso: Instalación de Arch Linux
+### Guía Paso a Paso: Instalación de Arch Linux
 7 de enero de 2024
 
-### 1. Preparar tu Sistema
+#### 1. Preparar tu Sistema
 
 Antes de sumergirte en la instalación de Arch Linux, asegúrate de contar con el hardware necesario y una conexión a internet confiable. Realiza una copia de seguridad de datos importantes, ya que el proceso de instalación implica particionar.
 
-### 2. Arrancar desde el Medio de Instalación de Arch Linux
+#### 2. Arrancar desde el Medio de Instalación de Arch Linux
 
 Inserta el medio de instalación de Arch Linux (USB, CD, etc.) en tu sistema. Arranca desde el medio para acceder al entorno en vivo de Arch Linux.
 
-### 3. Conectar a Internet
+#### 3. Conectar a Internet
 
 Establece una conexión a internet mediante Ethernet o Wi-Fi. Para Wi-Fi, puedes usar comandos como wifi-menu o iwctl para conectarte a una red.
 
-### 4. Actualizar el Reloj del Sistema
+#### 4. Actualizar el Reloj del Sistema
 
 Sincroniza el reloj del sistema con internet utilizando el comando timedatectl:
 
@@ -32,12 +32,12 @@ Sincroniza el reloj del sistema con internet utilizando el comando timedatectl:
 timedatectl set-ntp true
 ```
 
-### 5. Particionar el Disco
+#### 5. Particionar el Disco
 
 Utiliza una herramienta de particionado como cfdisk, fdisk o parted para particionar tu disco. Crea particiones para 
 `root (/), home (/home) y swap`
 
-### 6. Formatear Particiones
+#### 6. Formatear Particiones
 
 ```bash Formatea las particiones utilizando los sistemas de archivos adecuados.
 # Formatear la partición root
@@ -50,7 +50,7 @@ mkswap /dev/sdX3
 swapon /dev/sdX3        
 ```
 
-### 7. Montar Particiones
+#### 7. Montar Particiones
 
 ```bash Monta la partición root en /mnt y la partición home en /mnt/home:
 # Montar la partición root
@@ -61,11 +61,11 @@ mkdir /mnt/home
 mount /dev/sdX2 /mnt/home 
 ```
 
-### 8. Instalar el Sistema Base
+#### 8. Instalar el Sistema Base
 
 Instala el sistema base utilizando el comando pacstrap: ```pacstrap /mnt base linux linux-firmware```
 
-### 9. Configurar el Sistema
+#### 9. Configurar el Sistema
 
 Genera un archivo fstab para montar las particiones:
 ```bash
@@ -76,7 +76,7 @@ Chroot al sistema instalado:
 ```bash
 arch-chroot /mnt
 ```
-### 10. Instalar el Cargador de Arranque
+#### 10. Instalar el Cargador de Arranque
 
 Instala un cargador de arranque como GRUB:
 ```bash
@@ -85,7 +85,7 @@ pacman -S grub
 grub-install --target=i386-pc /dev/sdX  
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
-### 11. Configurar la Configuración Regional del Sistema
+#### 11. Configurar la Configuración Regional del Sistema
 
 Edita /etc/locale.gen y descomenta la configuración regional deseada. Genera la configuración regional:
 
@@ -93,25 +93,25 @@ Edita /etc/locale.gen y descomenta la configuración regional deseada. Genera la
 echo "LANG=es_ES.UTF-8">/etc/locale.conf
 ```
 
-### 12. Establecer el Nombre de Host y Configuración de Red
+#### 12. Establecer el Nombre de Host y Configuración de Red
 Establece un nombre de host y configura las opciones de red en /etc/hostname y /etc/hosts.
 
-### 13. Crear Contraseña de Root
+#### 13. Crear Contraseña de Root
 Establece la contraseña de root:
 ```bash
 passwd
 ```
-### 14. Crear Cuenta de Usuario
+#### 14. Crear Cuenta de Usuario
 
 ```bash Crea una cuenta de usuario y agrégala al grupo wheel para privilegios de sudo:
 useradd -m -G wheel nombreusuario
 passwd nombreusuario
 ```
 
-### 15. Instalar Software Adicional
+#### 15. Instalar Software Adicional
 Instala software adicional según sea necesario, incluyendo un servidor de visualización, entorno de escritorio y otros paquetes deseados.
 
-### 16. Reiniciar
+#### 16. Reiniciar
 Sal del entorno chroot, desmonta las particiones y reinicia:
 ```bash
 exit

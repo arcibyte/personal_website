@@ -4,18 +4,16 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section class="relative py-3 text-white overflow-hidden">
+<section class="relative py-3 text-foreground overflow-hidden">
   <div class="max-w-5xl mx-auto flex flex-col space-y-2 mb-6">
-    <h2 class="text-xl font-bold text-[#CCFF66] relative inline-block">
+    <h2 class="text-xl font-bold text-primary relative inline-block">
       {t("aboutme.title")}
     </h2>
-
-    <!-- Párrafo descriptivo -->
-    <p class="text-gray-300 max-w-2xl leading-relaxed relative">
+    <p class="text-secondary max-w-2xl leading-relaxed relative">
       {t("aboutme.paragraph.1")}
-      <span class="text-cyan-300 relative inline-block mx-1">
+      <span class="text-accent relative inline-block mx-1">
         <svg
-          class="absolute -left-4 -top-2 w-4 h-4 text-cyan-300"
+          class="absolute -left-4 -top-2 w-4 h-4 text-accent"
           viewBox="0 0 24 24"
           fill="currentColor"
         >
@@ -25,7 +23,7 @@ const t = useTranslations(lang);
         </svg>
         {t("aboutme.why")}
         <svg
-          class="absolute -right-4 -bottom-2 w-4 h-4 text-cyan-300"
+          class="absolute -right-4 -bottom-2 w-4 h-4 text-accent"
           viewBox="0 0 24 24"
           fill="currentColor"
         >
@@ -35,7 +33,8 @@ const t = useTranslations(lang);
       </span>
       {t("aboutme.paragraph.2")}
     </p>
-    <p class="mt-4">
+
+    <p class="mt-4 text-secondary max-w-2xl leading-relaxed">
       {t("aboutme.paragraph.3")}
     </p>
   </div>

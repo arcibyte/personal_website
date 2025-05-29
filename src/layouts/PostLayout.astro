@@ -4,17 +4,17 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <section class="relative max-w-3xl mx-auto px-6 py-6">
+  <section class="relative max-w-3xl mx-auto py-6 bg-background">
     <div class="mb-12 text-center">
-      <h1 class="text-3xl sm:text-4xl font-bold text-cyan-300 tracking-tight">
+      <h1 class="text-2xl font-bold text-foreground tracking-tight">
         {frontmatter.title}
       </h1>
-      <div class="mt-4 inline-block h-[2px] w-16 bg-cyan-300 rounded-sm"></div>
+      <div class="mt-4 inline-block h-[2px] w-16 bg-accent rounded-sm"></div>
     </div>
 
     <!-- Content Slot -->
     <article
-      class="prose prose-invert prose-headings:text-neutral-100 prose-a:text-cyan-300 prose-strong:text-lime-200 prose-code:bg-neutral-800 prose-code:rounded prose-code:px-1.5 prose-code:py-1 max-w-none text-gray-300 leading-relaxed"
+      class="prose prose-invert prose-headings:text-foreground prose-a:text-accent prose-strong:text-accent prose-code:rounded prose-code:px-1.5 prose-code:py-1 max-w-none text-secondary leading-relaxed"
     >
       <slot />
     </article>
@@ -23,7 +23,7 @@ const { frontmatter } = Astro.props;
     <div
       class="absolute top-10 right-4 w-12 h-12 sm:w-20 sm:h-20 opacity-10 pointer-events-none"
     >
-      <svg viewBox="0 0 100 100" class="w-full h-full text-gray-500">
+      <svg viewBox="0 0 100 100" class="w-full h-full text-accent">
         <path
           d="M0 0 L100 100 M100 0 L0 100"
           stroke="currentColor"

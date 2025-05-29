@@ -71,23 +71,11 @@ const currentLang = Astro.currentLocale || "es";
 
 <style is:global>
   @font-face {
-    font-family: "Rubik-Regular";
-    src: url(../../public/fonts/Rubik-Regular.woff) format("woff");
+    font-family: "Inter-Regular";
+    src: url(../../public/fonts/Inter-Regular.otf) format("opentype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
-  }
-  @font-face {
-    font-family: "Rubik-Bold";
-    src: url(../../public/fonts/Rubik-Bold.woff) format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  html {
-    font-family: "Rubik-Regular", sans-serif;
-    font-weight: 400;
   }
 
   h1,
@@ -95,10 +83,16 @@ const currentLang = Astro.currentLocale || "es";
   h3,
   h4,
   h5 {
-    font-family: "Rubik-Bold", sans-serif;
+    font-family: "Inter-Regular", sans-serif;
   }
 
   span {
-    font-family: "Rubik-Regular", sans-serif;
+    font-family: "Inter-Regular", sans-serif;
+  }
+  p {
+    font-family: "Inter-Regular";
+  }
+  a {
+    font-family: "Inter-Regular";
   }
 </style>

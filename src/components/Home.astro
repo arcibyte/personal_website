@@ -6,45 +6,49 @@ const t = useTranslations(lang);
 ---
 
 <section
-  class="min-h-[30vh] flex items-center justify-center mt-8"
+  class="min-h-[30vh] flex items-center justify-center mt-8 bg-background text-foreground"
   aria-label="Profile introduction section"
 >
   <div
-    class="relative max-w-4xl w-full flex flex-col items-center sm:items-start gap-1 text-center sm:text-left"
+    class="relative max-w-4xl w-full flex flex-col items-center sm:items-start gap-3 text-center sm:text-left"
   >
-    <div class="relative">
+    <div class="relative w-full">
       <span
-        class="absolute left-0 text-lime-300 text-sm rotate-2 font-semibold"
+        class="absolute left-0 text-accent text-sm rotate-2 font-semibold"
         aria-hidden="true"
       >
         👋 {t("profile.span")}
       </span>
 
-      <span class="block mt-5 text-sm text-neutral-400">
+      <span class="block mt-6 text-sm text-secondary">
         {t("profile.span.text")}
       </span>
     </div>
 
-    <h2 class="text-lg sm:text-xl font-semibold text-white">Jhon Arciniegas</h2>
-    <span class="text-sm text-neutral-400">
+    <h2 class="text-lg sm:text-xl text-primary font-semibold">
+      Jhon Arciniegas
+    </h2>
+
+    <span class="text-sm text-secondary -mt-1">
       {t("profile.span.text1")}
     </span>
 
-    <h3 class="sm:text-2xl text-xl text-lime-300 font-medium tracking-wide">
+    <h3
+      class="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent animate-text-glow"
+    >
       {t("profile.role")}
     </h3>
 
-    <p class="text-neutral-400 max-w-md leading-relaxed">
+    <p class="text-secondary max-w-md leading-relaxed mt-2">
       {t("profile.description")}
     </p>
-    <button>
-      <a
-        href="mailto:arcibyte@gmail.com"
-        class="mt-4 inline-block bg-lime-300 text-[#101726] text-xs font-medium px-2 py-2 rounded-full hover:bg-lime-200 transition-colors"
-        aria-label={t("profile.cta.aria")}
-      >
-        {t("profile.cta")}
-      </a>
-    </button>
+
+    <a
+      href="mailto:arcibyte@gmail.com"
+      class="mt-4 inline-block bg-primary text-background text-xs font-medium px-4 py-2 rounded-full shadow-md hover:bg-accent hover:text-background transition-colors duration-200"
+      aria-label={t("profile.cta.aria")}
+    >
+      {t("profile.cta")}
+    </a>
   </div>
 </section>

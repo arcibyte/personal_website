@@ -14,7 +14,7 @@ export const ui = {
     "profile.span": "Hola",
     "profile.span.text": " Me llamo",
     "profile.span.text1": "Soy",
-    "profile.role": "Desarrollador Frontend y Estudiante de Ciencia de Datos",
+    "profile.role": "Desarrollador Frontend",
     "profile.description":
       "Me gusta convertir la curiosidad en código, sobre todo cuando se trata de algoritmos inteligentes, software limpio e interfaces fáciles de usar.",
     "profile.cta": "Envíame un correo",
@@ -46,6 +46,10 @@ export const ui = {
       "detrás de los algoritmos, y construir cosas que se sientan bien de usar.",
     "aboutme.paragraph.3":
       "Cuando no estoy inmerso en el código o un libro, me encontrarás montando bicicleta, caminando por la montaña, componiendo un poco de música o disfrutando de la no ficción o escribiendo.",
+
+    //blog
+    "title.blog": "Publicaciones de blog",
+    "subtitle.blog": "pensamientos, notas e ideas",
   },
   en: {
     // Navigation
@@ -55,7 +59,7 @@ export const ui = {
     "profile.span": "Hello",
     "profile.span.text": "My name is",
     "profile.span.text1": "I'm",
-    "profile.role": "Frontend Developer and Data Science Student",
+    "profile.role": "Frontend Developer",
     "profile.description":
       "I love turning curiosity into code, especially when it comes to smart algorithms, clean software and easy-to-use interfaces.",
     "profile.cta": "Send me an email",
@@ -86,5 +90,9 @@ export const ui = {
       "behind algorithms, and building things that feel good to use.",
     "aboutme.paragraph.3":
       "When I'm not deep into code or a textbook, you'll find me biking or hiking, composing a bit of music, or vibing with some nonfiction or writing.",
+
+    //blog
+    "title.blog": "Blog posts",
+    "subtitle.blog": "Thoughts, notes & ideas",
   },
 } as const;

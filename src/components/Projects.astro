@@ -6,16 +6,16 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<h3 class="mt-12 mb-4 text-xl font-bold text-lime-300 tracking-tight">
+<h3 class="mt-12 mb-4 text-xl font-bold text-primary tracking-tight">
   {t("projects.title")}
 </h3>
 
 <section class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto mb-8">
   {
     projects.map((project) => (
-      <article class="flex flex-col justify-between rounded-xl border border-neutral-800ss p-2">
+      <article class="flex flex-col justify-between rounded-xl border border-white/20 p-4 bg-white/10 backdrop-blur-md shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 ease-in-out transform">
         <header class="flex justify-between items-center mb-4">
-          <h4 class="text-base font-semibold text-gray-100">
+          <h4 class="text-base font-semibold text-foreground">
             {t(project.titleKey)}
           </h4>
           <div class="flex gap-2 items-center">
@@ -24,11 +24,12 @@ const t = useTranslations(lang);
                 href={project.projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                class="opacity-70 hover:opacity-100 transition"
               >
                 <img
                   src="/icons/external-link.svg"
                   alt="Visit"
-                  class="w-5 h-5 opacity-70 hover:opacity-100 transition"
+                  class="w-5 h-5"
                 />
               </a>
             )}
@@ -37,22 +38,21 @@ const t = useTranslations(lang);
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                class="opacity-70 hover:opacity-100 transition"
               >
-                <img
-                  src="/icons/github.svg"
-                  alt="GitHub"
-                  class="w-5 h-5 opacity-70 hover:opacity-100 transition"
-                />
+                <img src="/icons/github.svg" alt="GitHub" class="w-5 h-5" />
               </a>
             )}
           </div>
         </header>
 
-        <p class="text-gray-400 text-sm mb-3">{t(project.descriptionKey)}</p>
+        <p class="text-foreground text-sm mb-3">{t(project.descriptionKey)}</p>
 
-        <div class="flex flex-wrap gap-2 mt-auto text-xs font-medium text-gray-300">
+        <div class="flex flex-wrap gap-2 mt-auto text-xs font-medium text-muted">
           {project.tags.map((tag) => (
-            <span class="bg-gray-800 px-2 py-0.5 rounded">{tag}</span>
+            <span class="bg-white/10 text-foreground border border-white/20 rounded px-2 py-0.5 text-xs backdrop-blur-sm">
+              {tag}
+            </span>
           ))}
         </div>
       </article>
