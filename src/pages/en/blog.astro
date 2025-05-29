@@ -10,8 +10,10 @@ type Post = {
   url: string;
 };
 
-// Cargar todos los posts de todos los idiomas
-const allPosts = import.meta.glob("/src/pages/*/posts/*.md", { eager: true });
+// Cargar todos los posts de todos los idiomas (EN)
+const allPosts = import.meta.glob("/src/pages/*/posts/*.md", {
+  eager: true,
+});
 
 // Detectar el idioma desde la URL
 const locale = Astro.url.pathname.split("/")[1] || "es";

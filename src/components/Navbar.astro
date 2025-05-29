@@ -21,11 +21,20 @@ const cleanPath = Astro.url.pathname.replace(/^\/(es|en)/, "") || "/";
 
 // Generar la nueva ruta con el idioma alternativo
 const switchTo = getRelativeLocaleUrl(otherLang, cleanPath);
+
+// Función para construir URL respetando que 'es' no lleva prefijo
+function localePath(lang: Locale, path: string) {
+  if (lang === "es") return path.startsWith("/") ? path : `/${path}`;
+  else return `/en${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+const homeHref = localePath(currentLang, "/");
+const blogHref = localePath(currentLang, "/blog");
 ---
 
 <header class="text-white py-4">
   <nav class="flex items-center justify-between max-w-7xl mx-auto">
-    <a href={`/${currentLang}/`} class="flex items-center space-x-3">
+    <a href={homeHref} class="flex items-center space-x-3">
       <img
         src="/public/img/profile.webp"
         alt="Foto de perfil"
@@ -36,7 +45,7 @@ const switchTo = getRelativeLocaleUrl(otherLang, cleanPath);
 
     <div class="flex items-center space-x-6 text-sm font-mono text-neutral-300">
       <a
-        href={getRelativeLocaleUrl(currentLang, "/blog")}
+        href={blogHref}
         class="hover:text-white transition-colors duration-200"
       >
         {translateUi("nav.blog")}
