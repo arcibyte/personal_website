@@ -1,25 +1,19 @@
 ---
-// Importación de datos y utilidades
 import { projects } from "../data/projects";
 import { useTranslations } from "../i18n/utils";
 
-// Obtener idioma desde las props de Astro
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<!-- Título de la sección -->
 <h3 class="mt-12 mb-4 text-xl font-bold text-lime-300 tracking-tight">
   {t("projects.title")}
 </h3>
 
-<!-- Contenedor de proyectos -->
 <section class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto mb-8">
   {
     projects.map((project) => (
-      <article
-        class="flex flex-col justify-between rounded-xl border border-neutral-800ss p-2"
-      >
+      <article class="flex flex-col justify-between rounded-xl border border-neutral-800ss p-2">
         <header class="flex justify-between items-center mb-4">
           <h4 class="text-base font-semibold text-gray-100">
             {t(project.titleKey)}
@@ -54,16 +48,11 @@ const t = useTranslations(lang);
           </div>
         </header>
 
-        <p class="text-gray-400 text-sm mb-3">
-          {t(project.descriptionKey)}
-        </p>
+        <p class="text-gray-400 text-sm mb-3">{t(project.descriptionKey)}</p>
 
-        <!-- Mostrar tags dinámicamente -->
         <div class="flex flex-wrap gap-2 mt-auto text-xs font-medium text-gray-300">
           {project.tags.map((tag) => (
-            <span class="bg-gray-800 px-2 py-0.5 rounded">
-              {tag}
-            </span>
+            <span class="bg-gray-800 px-2 py-0.5 rounded">{tag}</span>
           ))}
         </div>
       </article>
