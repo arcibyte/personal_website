@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/PostLayout.astro
+layout: ../../../layouts/PostLayout.astro
 title: "Configurando Arch Linux desde cero"
 pubDate: 2022-07-01
 description: "Exploring the intricacies of setting up Arch Linux from scratch in my inaugural blog post."

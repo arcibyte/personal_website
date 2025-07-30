@@ -2,18 +2,18 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "src/i18n/utils";
 
-const supportedLocales = ["es", "en"] as const;
+const supportedLocales = ["en", "es"] as const;
 type Locale = (typeof supportedLocales)[number];
 
 // Idioma actual
 const currentLang = supportedLocales.includes(Astro.currentLocale as Locale)
   ? (Astro.currentLocale as Locale)
-  : "es";
+  : "en";
 
 const translateUi = useTranslations(currentLang);
 
 // Idioma alternativo
-const otherLang = currentLang === "es" ? "en" : "es";
+const otherLang = currentLang === "en" ? "es" : "en";
 const label = otherLang.toUpperCase();
 
 // Eliminar prefijo del idioma actual
@@ -24,8 +24,8 @@ const switchTo = getRelativeLocaleUrl(otherLang, cleanPath);
 
 // Función para construir URL respetando que 'es' no lleva prefijo
 function localePath(lang: Locale, path: string) {
-  if (lang === "es") return path.startsWith("/") ? path : `/${path}`;
-  else return `/en${path.startsWith("/") ? path : `/${path}`}`;
+  if (lang === "en") return path.startsWith("/") ? path : `/${path}`;
+  else return `/es${path.startsWith("/") ? path : `/${path}`}`;
 }
 
 const homeHref = localePath(currentLang, "/");
