@@ -11,7 +11,6 @@ tags: ["Arch Linux", "installation", "Linux"]
 ---
 
 ## Step-by-Step Guide: Installing Arch Linux  
-January 7, 2024
 
 ### 1. Prepare Your System
 
@@ -34,10 +33,12 @@ timedatectl set-ntp true
 ```
 
 ### 5. Partition the Disk
+
 Use a partitioning tool like `cfdisk`, `fdisk` o `parted` po partition your disk. Create partitions for
 `root (/), home (/home) y swap`
 
 ### 6. Format the Partitions
+
 ```bash
 mkfs.ext4 /dev/sdX1
 #### Format the swap partition    
@@ -47,7 +48,9 @@ swapon /dev/sdX3
 ```
 
 ### 7. Mount the Partitions
+
 Mount the root partition:
+
 ```bash
 mount /dev/sdX1 /mnt 
 #### Create home directory    
@@ -57,19 +60,25 @@ mount /dev/sdX2 /mnt/home
 ```
 
 ### 8. Install the Base System
+
 ```bash
 `pacstrap` /mnt base linux linux-firmware
 ```
 
 ### 9. Configure the System
+
 Generate an fstab file to mount the partitions:
+
 ```bash
 `genfstab -U /mnt >> /mnt/etc/fstab`
 Chroot into the installed system:
 `arch-chroot /mnt`
 ```
+
 ### 10. Install the Bootloader
+
 Install a bootloader like GRUB:
+
 ```bash
 pacman -S grub
 #### Replace sdX with your disk 
@@ -78,32 +87,41 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ### 11. Configure System Locale
+
 ```bash
 locale-gen
 echo "LANG=es_ES.UTF-8" > /etc/locale.conf
 ```
 
 ### 12. Set Hostname and Network Configuration
+
 Set a hostname and configure the network settings in `/etc/hostname and /etc/hosts`
 
 ### 13. Set Root Password
+
 Set the root password:
+
 ```bash
 passwd
 ```
 
 ### 14. Create a User Account
+
 Create a user account and add it to the wheel group for sudo privileges
+
 ```bash
 useradd -m -G wheel username
 passwd username
 ```
 
 ### 15. Install Additional Software
+
 Install any additional software as needed, including a display server, desktop environment, and other desired packages.
 
 ### 16. Reboot
+
 Exit the chroot environment, unmount the partitions, and reboot:
+
 ```bash
 exit
 umount -R /mnt

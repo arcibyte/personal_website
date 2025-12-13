@@ -9,27 +9,55 @@ const { t } = initTranslations(Astro.url);
 type Post = {
   frontmatter: {
     title: string;
-    date: string;
+    pubDate: string;
+    description?: string;
   };
   url: string;
 };
 
-const allPosts = import.meta.glob("/src/pages/posts/*.md", { eager: true });
+const allPosts = import.meta.glob("/src/pages/posts/**/*.md", { eager: true });
 
 const posts = Object.entries(allPosts).map(([path, mod]) => {
   const post = mod as Post;
-  const fileName = path.split("/").pop()?.replace(".md", "") || "";
+  const urlPath = path.replace("/src/pages/posts/", "").replace(".md", "");
+
   return {
     ...post,
-    url: `/posts/${fileName}`,
+    url: `/posts/${urlPath}`,
   };
 });
 
 const reversedPostList = posts.sort(
   (a, b) =>
-    new Date(b.frontmatter.date).getTime() -
-    new Date(a.frontmatter.date).getTime()
+    new Date(b.frontmatter.pubDate).getTime() -
+    new Date(a.frontmatter.pubDate).getTime(),
 );
+
+// Detectar el idioma desde la URL
+const currentPath = Astro.url.pathname;
+const locale = currentPath.startsWith("/es") ? "es-ES" : "en-US";
+
+function formatDate(dateString: string, locale: string): string {
+  if (!dateString) return "";
+
+  const [year, month, day] = dateString.split("-");
+
+  if (!year || !month || !day) {
+    return dateString;
+  }
+
+  const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+
+  if (isNaN(date.getTime())) {
+    return dateString;
+  }
+
+  return date.toLocaleDateString(locale, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 ---
 
 <Layout title={pageTitle}>
@@ -47,13 +75,19 @@ const reversedPostList = posts.sort(
       {
         reversedPostList.map((post) => (
           <li class="pl-3 border-l-4 border-white transition-colors rounded-md group hover:bg-muted/80 hover:border-amber-300">
-            <a
-              href={post.url}
-              class="block text-base font-medium text-foreground transition-colors"
-            >
-              {post.frontmatter.title}
+            <a href={post.url} class="block py-2">
+              <span class="block text-base font-medium text-foreground transition-colors">
+                {post.frontmatter.title}
+              </span>
+              {post.frontmatter.pubDate && (
+                <time
+                  class="block mt-1 text-sm text-secondary"
+                  datetime={post.frontmatter.pubDate}
+                >
+                  {formatDate(post.frontmatter.pubDate, locale)}
+                </time>
+              )}
             </a>
-            <p class="mt-1 text-sm text-secondary">{post.frontmatter.date}</p>
           </li>
         ))
       }

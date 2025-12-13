@@ -10,7 +10,6 @@ image:
 tags: ["Arch Linux", "installation", "Linux"]
 ---
 ### Guía Paso a Paso: Instalación de Arch Linux
-7 de enero de 2024
 
 #### 1. Preparar tu Sistema
 
@@ -34,7 +33,7 @@ timedatectl set-ntp true
 
 #### 5. Particionar el Disco
 
-Utiliza una herramienta de particionado como cfdisk, fdisk o parted para particionar tu disco. Crea particiones para 
+Utiliza una herramienta de particionado como cfdisk, fdisk o parted para particionar tu disco. Crea particiones para
 `root (/), home (/home) y swap`
 
 #### 6. Formatear Particiones
@@ -68,23 +67,28 @@ Instala el sistema base utilizando el comando pacstrap: ```pacstrap /mnt base li
 #### 9. Configurar el Sistema
 
 Genera un archivo fstab para montar las particiones:
+
 ```bash
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
 Chroot al sistema instalado:
+
 ```bash
 arch-chroot /mnt
 ```
+
 #### 10. Instalar el Cargador de Arranque
 
 Instala un cargador de arranque como GRUB:
+
 ```bash
 pacman -S grub
 # Reemplaza sdX por tu disco 
 grub-install --target=i386-pc /dev/sdX  
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
 #### 11. Configurar la Configuración Regional del Sistema
 
 Edita /etc/locale.gen y descomenta la configuración regional deseada. Genera la configuración regional:
@@ -94,13 +98,17 @@ echo "LANG=es_ES.UTF-8">/etc/locale.conf
 ```
 
 #### 12. Establecer el Nombre de Host y Configuración de Red
+
 Establece un nombre de host y configura las opciones de red en /etc/hostname y /etc/hosts.
 
 #### 13. Crear Contraseña de Root
+
 Establece la contraseña de root:
+
 ```bash
 passwd
 ```
+
 #### 14. Crear Cuenta de Usuario
 
 ```bash Crea una cuenta de usuario y agrégala al grupo wheel para privilegios de sudo:
@@ -109,14 +117,17 @@ passwd nombreusuario
 ```
 
 #### 15. Instalar Software Adicional
+
 Instala software adicional según sea necesario, incluyendo un servidor de visualización, entorno de escritorio y otros paquetes deseados.
 
 #### 16. Reiniciar
+
 Sal del entorno chroot, desmonta las particiones y reinicia:
+
 ```bash
 exit
 umount -R /mnt
 reboot
 ```
-¡Felicidades! Has instalado exitosamente Arch Linux. Explora y personaliza tu sistema según tus preferencias.
 
+¡Felicidades! Has instalado exitosamente Arch Linux. Explora y personaliza tu sistema según tus preferencias.
