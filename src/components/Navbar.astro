@@ -5,27 +5,19 @@ import { useTranslations } from "src/i18n/utils";
 const supportedLocales = ["en", "es"] as const;
 type Locale = (typeof supportedLocales)[number];
 
-// Idioma actual
 const currentLang = supportedLocales.includes(Astro.currentLocale as Locale)
   ? (Astro.currentLocale as Locale)
   : "en";
 
 const translateUi = useTranslations(currentLang);
-
-// Idioma alternativo
 const otherLang = currentLang === "en" ? "es" : "en";
 const label = otherLang.toUpperCase();
-
-// Eliminar prefijo del idioma actual
 const cleanPath = Astro.url.pathname.replace(/^\/(es|en)/, "") || "/";
-
-// Generar la nueva ruta con el idioma alternativo
 const switchTo = getRelativeLocaleUrl(otherLang, cleanPath);
 
-// Función para construir URL respetando que 'es' no lleva prefijo
 function localePath(lang: Locale, path: string) {
   if (lang === "en") return path.startsWith("/") ? path : `/${path}`;
-  else return `/es${path.startsWith("/") ? path : `/${path}`}`;
+  return `/es${path.startsWith("/") ? path : `/${path}`}`;
 }
 
 const homeHref = localePath(currentLang, "/");
@@ -33,38 +25,41 @@ const blogHref = localePath(currentLang, "/blog");
 ---
 
 <header
-  class="bg-background/80 text-foreground py-4 border-b border-muted backdrop-blur-sm sticky top-0 z-50"
+  class="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-muted"
   aria-label="Main navigation"
 >
-  <nav class="flex items-center justify-between max-w-7xl mx-auto">
-    <a href={homeHref} class="flex items-center space-x-3 group">
+  <nav class="max-w-7xl mx-auto py-4 flex items-center justify-between">
+    <a href={homeHref} class="group flex items-center gap-3">
       <img
         src="/img/profile.webp"
         alt="Foto de perfil"
         loading="lazy"
-        class="w-8 h-8 rounded-full object-cover transition-transform duration-200 group-hover:scale-105"
+        class="w-8 h-8 rounded-full object-cover transition-transform duration-300 group-hover:scale-105"
       />
       <span
-        class="font-semibold tracking-wide text-foreground group-hover:text-primary transition-colors"
+        class="font-semibold text-foreground transition-opacity duration-300 group-hover:opacity-60"
       >
         Arcibyte
       </span>
     </a>
 
-    <div class="flex items-center space-x-6 text-sm font-mono text-foreground">
+    <div class="flex items-center gap-6 text-sm">
       <a
         href={blogHref}
-        class="relative inline-block transition-all duration-200 after:block after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 after:mt-1 hover:after:w-full"
+        class="font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
       >
         {translateUi("nav.blog")}
       </a>
 
       <a
         href={switchTo}
-        class="px-3 py-1 bg-primary text-background hover:bg-accent hover:text-background rounded-full text-xs font-semibold transition-colors duration-200"
+        class="group relative px-4 py-1.5 text-xs font-medium text-foreground rounded-lg border border-foreground/10 hover:border-foreground/30 hover:bg-foreground/5 transition-all duration-300 overflow-hidden"
         aria-label={`Switch to ${label}`}
       >
-        {label}
+        <span
+          class="absolute inset-0 w-0 bg-foreground/5 transition-all duration-500 ease-out group-hover:w-full"
+        ></span>
+        <span class="relative z-10">{label}</span>
       </a>
     </div>
   </nav>
