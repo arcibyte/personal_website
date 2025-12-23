@@ -63,10 +63,12 @@ function formatDate(dateString: string, locale: string): string {
 <Layout title={pageTitle}>
   <section class="max-w-4xl mx-auto py-6 bg-background">
     <header class="mb-12">
-      <h1 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+      <h1 class="text-xl sm:text-2xl font-bold text-primary tracking-tight">
         {t("title.blog")}
       </h1>
-      <p class="mt-3 text-secondary text-sm uppercase tracking-widest">
+      <p
+        class="mt-3 text-secondary text-sm text-foreground uppercase tracking-widest"
+      >
         {t("subtitle.blog")}
       </p>
     </header>
@@ -81,7 +83,7 @@ function formatDate(dateString: string, locale: string): string {
               </span>
               {post.frontmatter.pubDate && (
                 <time
-                  class="block mt-1 text-sm text-secondary"
+                  class="block mt-1 text-sm text-secondary text-foreground"
                   datetime={post.frontmatter.pubDate}
                 >
                   {formatDate(post.frontmatter.pubDate, locale)}
