@@ -1,129 +1,45 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: "Setting Up Arch Linux from Scratch"
-pubDate: 2022-07-01
-description: "Exploring the intricacies of setting up Arch Linux from scratch in my inaugural blog post."
+title: "Why do I use Arch?"
+pubDate: 2025-12-23
+description: "I share my experience using Arch Linux as my daily driver operating system, its advantages and why it's an environment I really enjoy."
 author: "Jhon Arciniegas"
 image:
   url: "https://example.com/image.jpg"
-  alt: "Arch Linux Installation"
-tags: ["Arch Linux", "installation", "Linux"]
+  alt: "Experience with Arch Linux"
+tags: ["Arch Linux", "Experience", "Linux"]
 ---
 
-## Step-by-Step Guide: Installing Arch Linux  
+Before talking about why I ended up using Arch, I have to say that I used several Linux distributions, including Fedora, which I used for over 2 years. However, I always wanted to have more control over my system and had heard about Arch several years ago but hadn't been motivated to install it.
 
-### 1. Prepare Your System
+I had already seen the "rices" that people posted with Arch and I found it extremely interesting, and I couldn't wait to have my own rice, so I started reading the Arch wiki and after several tests in virtual machines I created the bootable and set it as the first option in the BIOS.
 
-Before diving into the Arch Linux installation, make sure you have the required hardware and a reliable internet connection. Back up any important data, as the installation process involves partitioning.
+Without going into too many details, the final reason that led me to have Arch was the Tiling Window Managers, like Hyprland which I found very beautiful, so I made a dual boot and left Arch as my development environment and Windows in case I needed compatibility and for university, but then I realized that I increasingly hated Windows and it was no longer useful to have both if I was only going to use one almost all the time.
 
-### 2. Boot from the Arch Linux Installation Media
+More than a year has passed since then, I made my own dotfiles that are a bit abandoned but I left them on GitHub. Currently, after several changes and tests, I found a beautiful configuration that was created by JaKooLit, I took his configuration and made some changes for myself.
 
-Insert the Arch Linux installation media (USB, CD, etc.) into your system. Boot from it to access the Arch Linux live environment.
+### Advantages I've found
 
-### 3. Connect to the Internet
+The first thing I noticed was the freedom, you can install exactly what you need and nothing more. There are no preloaded programs that you'll never use taking up space, it's like building your own house from scratch instead of buying one already made with a bunch of things you don't want.
 
-Establish an internet connection via Ethernet or Wi-Fi. For Wi-Fi, you can use commands like `wifi-menu` or `iwctl` to connect to a network.
+The AUR is one of the best things, practically any program you need is there and installation is very easy with yay or paru. I no longer have to go around looking for weird PPAs or downloading .deb files.
 
-### 4. Update the System Clock
+The Arch wiki is one of the most complete, the community has built great documentation. Every time I have a problem, the answer is there, well explained and updated.
 
-Synchronize the system clock with the internet using the following command:
+Rolling release means I always have the latest without having to reinstall the system every six months or a year. I simply do a `pacman -Syu` and that's it, everything updated.
 
-```bash
-timedatectl set-ntp true
-```
+### The disadvantages
 
-### 5. Partition the Disk
+Not everything was going to be good, Arch can break if you don't know what you're doing. A badly done update or installing things without reading can leave the system unusable. I've had to use chroot from a USB more than once to fix things.
 
-Use a partitioning tool like `cfdisk`, `fdisk` o `parted` po partition your disk. Create partitions for
-`root (/), home (/home) y swap`
+The initial installation is not for everyone. Although archinstall now exists which makes it easier, it's still intimidating compared to Ubuntu or Mint where you basically click next, next, next and you're done.
 
-### 6. Format the Partitions
+Some proprietary drivers can be a headache, especially with NVIDIA cards. Sometimes you have to do quite a bit of research to get everything working properly.
 
-```bash
-mkfs.ext4 /dev/sdX1
-#### Format the swap partition    
-mkswap /dev/sdX3
-#### Enable swap      
-swapon /dev/sdX3  
-```
+And well, the time. Configuring everything the way you want takes time, a lot of time. Between researching, testing, breaking, fixing and testing again, you can spend days until you have the perfect system. But for me it has been worth every minute.
 
-### 7. Mount the Partitions
+### Would I recommend it?
 
-Mount the root partition:
+If you're someone who likes to have total control over their system, learn how everything works inside and you don't mind reading documentation, definitely give Arch a try. But if you just want something that works without complications to use the browser and office, better stick with something more traditional.
 
-```bash
-mount /dev/sdX1 /mnt 
-#### Create home directory    
-mkdir /mnt/home 
-#### Mount the home partition         
-mount /dev/sdX2 /mnt/home 
-```
-
-### 8. Install the Base System
-
-```bash
-`pacstrap` /mnt base linux linux-firmware
-```
-
-### 9. Configure the System
-
-Generate an fstab file to mount the partitions:
-
-```bash
-`genfstab -U /mnt >> /mnt/etc/fstab`
-Chroot into the installed system:
-`arch-chroot /mnt`
-```
-
-### 10. Install the Bootloader
-
-Install a bootloader like GRUB:
-
-```bash
-pacman -S grub
-#### Replace sdX with your disk 
-grub-install --target=i386-pc /dev/sdX  
-grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-### 11. Configure System Locale
-
-```bash
-locale-gen
-echo "LANG=es_ES.UTF-8" > /etc/locale.conf
-```
-
-### 12. Set Hostname and Network Configuration
-
-Set a hostname and configure the network settings in `/etc/hostname and /etc/hosts`
-
-### 13. Set Root Password
-
-Set the root password:
-
-```bash
-passwd
-```
-
-### 14. Create a User Account
-
-Create a user account and add it to the wheel group for sudo privileges
-
-```bash
-useradd -m -G wheel username
-passwd username
-```
-
-### 15. Install Additional Software
-
-Install any additional software as needed, including a display server, desktop environment, and other desired packages.
-
-### 16. Reboot
-
-Exit the chroot environment, unmount the partitions, and reboot:
-
-```bash
-exit
-umount -R /mnt
-reboot
-```
+For me, Arch became my digital home and I don't see myself going back to anything else anytime soon. Unless... it's NixOS. I've been researching declarative configuration and the idea of being able to reproduce exactly my system on any machine sounds tempting, but that's a story for another post.

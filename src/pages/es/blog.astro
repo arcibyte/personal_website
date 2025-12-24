@@ -15,15 +15,17 @@ type Post = {
   url: string;
 };
 
-const allPosts = import.meta.glob("/src/pages/posts/**/*.md", { eager: true });
+const allPosts = import.meta.glob("/src/pages/es/posts/**/*.md", {
+  eager: true,
+});
 
 const posts = Object.entries(allPosts).map(([path, mod]) => {
   const post = mod as Post;
-  const urlPath = path.replace("/src/pages/posts/", "").replace(".md", "");
+  const urlPath = path.replace("/src/pages/es/posts/", "").replace(".md", "");
 
   return {
     ...post,
-    url: `/posts/${urlPath}`,
+    url: `/es/posts/${urlPath}`,
   };
 });
 
