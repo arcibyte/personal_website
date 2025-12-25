@@ -44,9 +44,9 @@ const t = useTranslations(lang);
       {t("profile.description")}
     </p>
 
-    <a
-      href="mailto:arcibyte@gmail.com"
-      class="group relative mt-4 inline-flex items-center gap-2.5 text-foreground text-sm font-medium px-5 py-2.5 rounded-lg border border-foreground/10 hover:border-foreground/30 backdrop-blur-sm hover:bg-foreground/5 transition-all duration-300 overflow-hidden"
+    <button
+      onclick="window.location.href='mailto:arcibyte@gmail.com'"
+      class="group relative mt-4 inline-flex items-center gap-2.5 text-foreground text-sm font-medium px-5 py-2.5 rounded-lg border border-foreground/10 hover:border-foreground/30 backdrop-blur-sm hover:bg-foreground/5 transition-all duration-300 overflow-hidden cursor-pointer"
       aria-label={t("profile.cta.aria")}
     >
       <span
@@ -64,6 +64,6 @@ const t = useTranslations(lang);
         class="relative z-10 w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300"
         strokeWidth={2}
       />
-    </a>
+    </button>
   </div>
 </section>
